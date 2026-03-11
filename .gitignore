@@ -1,0 +1,50 @@
+# Build results
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+*.dll.config
+
+# Visual Studio cache/options
+.vs/
+.vscode/
+*.user
+*.userosscache
+*.sln.docstates
+
+# Test Results
+TestResults/
+*.trx
+
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/
+
+# Generated PDF files
+Rechnung.pdf
+Rechnung4.pdf
+invoice.pdf
+sample_invoice.pdf
+*.pdf
+
+# Local project files
+launchSettings.json
+appsettings.json
+
+# Rider
+.idea/
+*.sln.iml
+
+# User-specific files
+*.suo
+*.suo
+appsettings.local.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
