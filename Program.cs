@@ -8,7 +8,10 @@ using System.Text.Json;
 
 #pragma warning disable OPENAI001
 
-await SpeechTest.Run();
+//await SpeechTest.Run();
+string speechText = await SpeechTest.Run();
+Console.WriteLine(speechText);
+
 
 // Set QuestPDF license for evaluation/testing
 QuestPDF.Settings.License = LicenseType.Community;
@@ -22,7 +25,8 @@ AIProjectClient projectClient = new(
 
 var responseClient = projectClient.OpenAI.GetProjectResponsesClientForAgent(agentName);
 
-var response = responseClient.CreateResponse("Erstelle Rechnungsdaten: Schmidt, Leistung IT-Beratung, Betrag 500 €, Datum 10.03.2026");
+//var response = responseClient.CreateResponse("Erstelle Rechnungsdaten: Schmidt, Leistung IT-Beratung, Betrag 500 €, Datum 10.03.2026");
+var response = responseClient.CreateResponse(speechText);
 
 string outputText = response.Value.GetOutputText();
 Console.WriteLine(outputText);
