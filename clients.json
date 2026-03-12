@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Schmidt",
+    "address": "Hauptstr. 10, 60311 Frankfurt",
+    "email": "schmidt@example.de"
+  },
+  {
+    "id": 2,
+    "name": "Mueller",
+    "address": "Bismarckstr. 25, 60325 Frankfurt",
+    "email": "mueller@example.de"
+  },
+  {
+    "id": 3,
+    "name": "Weber",
+    "address": "Kaiserstr. 50, 60311 Frankfurt",
+    "email": "weber@example.de"
+  }
+]

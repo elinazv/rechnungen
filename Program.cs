@@ -12,6 +12,10 @@ using System.Text.Json;
 string speechText = await SpeechTest.Run();
 Console.WriteLine(speechText);
 
+// Read client addresses from JSON file
+string clientsJson = File.ReadAllText("clients.json");
+Console.WriteLine("Client data loaded:");
+Console.WriteLine(clientsJson);
 
 // Set QuestPDF license for evaluation/testing
 QuestPDF.Settings.License = LicenseType.Community;
@@ -25,8 +29,16 @@ AIProjectClient projectClient = new(
 
 var responseClient = projectClient.OpenAI.GetProjectResponsesClientForAgent(agentName);
 
-//var response = responseClient.CreateResponse("Erstelle Rechnungsdaten: Schmidt, Leistung IT-Beratung, Betrag 500 €, Datum 10.03.2026");
-var response = responseClient.CreateResponse(speechText);
+// Combine speech text with client data for the LLM prompt
+string prompt = $"""
+Use the following client addresses data:
+{clientsJson}
+
+Based on this data and the user request: {speechText}
+Create invoice data in JSON format.
+""";
+
+var response = responseClient.CreateResponse(prompt);
 
 string outputText = response.Value.GetOutputText();
 Console.WriteLine(outputText);
